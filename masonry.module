@@ -34,7 +34,7 @@ function masonry_libraries_info() {
       // imagesLoaded 3.x
       'pattern' => '/imagesLoaded\s+PACKAGED\s+v?([0-9\.]+)/',
       'lines' => 2,
-      'cols' => 30,
+      'cols' => 35,
     ),
     'files' => array(
       'js' => array(
