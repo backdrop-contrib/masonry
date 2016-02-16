@@ -60,6 +60,9 @@
           else {
             $options.transitionDuration = 0;
           }
+          if(settings.percent_position){
+            $options.percentPosition = true;
+          }
 
           // Apply Masonry to container
           if (settings.images_first) {
