@@ -64,6 +64,6 @@ function hook_masonry_script_alter(&$masonry, &$script_file, $context) {
   $masonry['masonry'][$container]['animation_easing'] = $options['masonry_animation_easing'];
 
   // Use a custom javascript file that includes easing in the animationOptions
-  $script_file = drupal_get_path('module', '[MODULE_NAME]') . '/custom_masonry.js';
+  $script_file = backdrop_get_path('module', '[MODULE_NAME]') . '/js/custom_masonry.js';
 }
 

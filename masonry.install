@@ -13,35 +13,40 @@ function masonry_requirements($phase) {
 
   if ($phase == 'runtime') {
     $masonry = libraries_detect('masonry');
-    $requirements['masonry'] = array(
-      'title' => $t('jQuery Masonry'),
-    );
+    $requirements['masonry_jquery.masonry']['title'] = 'Masonry';
     if ($masonry['installed']) {
-      $requirements['masonry']['value'] = $masonry['version'];
-      $requirements['masonry']['severity'] = REQUIREMENT_OK;
+      $requirements['masonry_jquery.masonry']['value'] = $masonry['version'];
+      $requirements['masonry_jquery.masonry']['severity'] = REQUIREMENT_OK;
     }
     else {
-      $requirements['masonry']['value'] = $masonry['error'];
-      $requirements['masonry']['description'] = $masonry['error message'];
-      $requirements['masonry']['severity'] = REQUIREMENT_ERROR;
+      $requirements['masonry_jquery.masonry']['value'] = $masonry['error'];
+      //$requirements['jquery.masonry']['description'] = $masonry['error message'];
+      $requirements['masonry_jquery.masonry']['description'] = $t('Download and copy the <a href="@link">@name</a> library to %path.', array(
+            '@link' => 'https://npmcdn.com/masonry-layout@3.3.2/dist/masonry.pkgd.min.js',
+            '@name' => $requirements['masonry_jquery.masonry']['title'],
+            '%path' => 'libraries/jquery.masonry',
+          ));
+      $requirements['masonry_jquery.masonry']['severity'] = REQUIREMENT_ERROR;
     }
 
-    $imagesloaded = libraries_detect('imagesloaded');
-    $requirements['masonry_imagesloaded'] = array(
-      'title' => $t('jQuery Images Loaded'),
-    );
+    $imagesloaded = libraries_detect('jquery.imagesloaded');
+    $requirements['masonry_jquery.imagesloaded']['title'] = 'imagesLoaded';
     if ($imagesloaded['installed']) {
-      $requirements['masonry_imagesloaded']['value'] = $imagesloaded['version'];
-      $requirements['masonry_imagesloaded']['severity'] = REQUIREMENT_OK;
+      $requirements['masonry_jquery.imagesloaded']['value'] = $imagesloaded['version'];
+      $requirements['masonry_jquery.imagesloaded']['severity'] = REQUIREMENT_OK;
     }
     else {
-      $requirements['masonry_imagesloaded']['value'] = $imagesloaded['error'];
-      $requirements['masonry_imagesloaded']['description'] = $imagesloaded['error message'];
-      $requirements['masonry_imagesloaded']['severity'] = REQUIREMENT_ERROR;
+      $requirements['masonry_jquery.imagesloaded']['value'] = $imagesloaded['error'];
+      //$requirements['jquery.imagesloaded']['description'] = $imagesloaded['error message'];
+      $requirements['masonry_jquery.imagesloaded']['description'] = $t('Download and copy the <a href="@link">@name</a> library to %path.', array(
+            '@link' => 'https://github.com/desandro/imagesloaded',
+            '@name' => $requirements['masonry_jquery.imagesloaded']['title'],
+            '%path' => 'libraries/jquery.imagesloaded',
+          ));
+      $requirements['masonry_jquery.imagesloaded']['severity'] = REQUIREMENT_ERROR;
     }
 
   }
-
   return $requirements;
 }
 

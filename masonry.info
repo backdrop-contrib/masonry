@@ -1,7 +1,7 @@
 name = Masonry API
-description = "Provides an API for integrating the jQuery Masonry plugin with Drupal."
-core = 7.x
+description = Provides an API for integrating the jQuery Masonry plugin with Backdrop.
+backdrop = 1.x
 package = Masonry
-version = 3.x
-dependencies[] = libraries (>=2.x)
+type = module
 
+dependencies[] = libraries

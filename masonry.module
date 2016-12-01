@@ -116,7 +116,7 @@ function masonry_default_options() {
   );
 
   // Allow other modules to alter the default options
-  drupal_alter('masonry_default_options', $options);
+  backdrop_alter('masonry_default_options', $options);
 
   return $options;
 }
@@ -220,7 +220,7 @@ function masonry_add_options_to_form(&$form, $default_values) {
   );
 
   // Allow other modules to alter the form
-  drupal_alter('masonry_options_form', $form, $default_values);
+  backdrop_alter('masonry_options_form', $form, $default_values);
 }
 
 /**
@@ -274,17 +274,17 @@ function masonry_apply($container, $options = array()) {
         ),
       ),
     );
-    $script_file = drupal_get_path('module', 'masonry') . '/masonry.js';
+    $script_file = backdrop_get_path('module', 'masonry') . '/masonry.js';
 
     // Allow other modules to alter the Masonry script
     $context = array(
       'container' => $container,
       'options' => $options,
     );
-    drupal_alter('masonry_script', $masonry, $script_file, $context);
+    backdrop_alter('masonry_script', $masonry, $script_file, $context);
 
     // Apply the script
-    drupal_add_js($masonry, 'setting');
-    drupal_add_js($script_file);
+    backdrop_add_js($masonry, 'setting');
+    backdrop_add_js($script_file);
   }
 }
