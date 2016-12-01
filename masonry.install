@@ -24,7 +24,7 @@ function masonry_requirements($phase) {
       $requirements['masonry_jquery.masonry']['description'] = $t('Download and copy the <a href="@link">@name</a> library to %path.', array(
             '@link' => 'https://npmcdn.com/masonry-layout@3.3.2/dist/masonry.pkgd.min.js',
             '@name' => $requirements['masonry_jquery.masonry']['title'],
-            '%path' => 'libraries/jquery.masonry',
+            '%path' => 'libraries/masonry',
           ));
       $requirements['masonry_jquery.masonry']['severity'] = REQUIREMENT_ERROR;
     }

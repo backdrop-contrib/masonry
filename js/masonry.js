@@ -5,7 +5,7 @@
 
 (function($) {
     
-  Drupal.behaviors.masonry = {
+  Backdrop.behaviors.masonry = {
     attach: function(context, settings) {
 
       // Apply Masonry on the page.
@@ -25,7 +25,7 @@
       function applyMasonry(forceInit) {
 
         // Iterate through all Masonry instances
-        $.each(Drupal.settings.masonry, function (container, settings) {
+        $.each(Backdrop.settings.masonry, function (container, settings) {
           // Set container
           var $container = $(container);
 

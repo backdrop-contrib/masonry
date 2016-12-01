@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Provides an API for integrating the jQuery Masonry plugin with Drupal.
+ * Provides an API for integrating the jQuery Masonry plugin with Backdrop.
  */
 
 /**
@@ -25,8 +25,8 @@ function masonry_libraries_info() {
       ),
     ),
   );
-  $libraries['imagesloaded'] = array(
-    'name' => 'Images Loaded',
+  $libraries['jquery.imagesloaded'] = array(
+    'name' => 'imagesLoaded',
     'vendor url' => 'http://desandro.github.io/imagesloaded',
     'download url' => 'http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js',
     'version arguments' => array(
@@ -54,7 +54,7 @@ function masonry_libraries_info() {
  */
 function masonry_installed() {
   $masonry = libraries_detect('masonry');
-  $imagesloaded = libraries_detect('imagesloaded');
+  $imagesloaded = libraries_detect('jquery.imagesloaded');
   if ((!empty($masonry['installed'])) && (!empty($imagesloaded['installed']))) {
     return TRUE;
   }
@@ -71,7 +71,7 @@ function masonry_installed() {
  */
 function masonry_loaded() {
   $masonry = libraries_load('masonry');
-  $imagesloaded = libraries_load('imagesloaded');
+  $imagesloaded = libraries_load('jquery.imagesloaded');
   if ((!empty($masonry['loaded'])) && (!empty($imagesloaded['loaded']))) {
     return TRUE;
   }
@@ -274,7 +274,7 @@ function masonry_apply($container, $options = array()) {
         ),
       ),
     );
-    $script_file = backdrop_get_path('module', 'masonry') . '/masonry.js';
+    $script_file = backdrop_get_path('module', 'masonry') . '/js/masonry.js';
 
     // Allow other modules to alter the Masonry script
     $context = array(
