@@ -15,11 +15,6 @@ Additionally, no styling is provided by this API module or any of the sub-module
 
 ## Installation
 
- - Start by downloading and installing the Libraries module.
- - Fetch [Masonry](http://masonry.desandro.com/masonry.pkgd.min.js) and place it into
-    `libraries/masonry/masonry.pkgd.min.js`
- - Fetch [imagesLoaded](http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js) and place it into
-    `libraries/jquery.imagesloaded/imagesloaded.pkgd.min.js`
  - Install this module using the official
   [Backdrop CMS instructions](https://backdropcms.org/guide/modules)
 
