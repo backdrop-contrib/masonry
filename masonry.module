@@ -40,8 +40,8 @@ function masonry_installed() {
  *   A boolean indicating the loaded status.
  */
 function masonry_loaded() {
-  $masonry = backdrop_add_library('masonry');
-  $imagesloaded = backdrop_add_library('imagesloaded');
+  $masonry = backdrop_add_library('masonry', 'masonry');
+  $imagesloaded = backdrop_add_library('imagesloaded', 'imagesloaded');
   if ($masonry && $imagesloaded) {
     return TRUE;
   }
