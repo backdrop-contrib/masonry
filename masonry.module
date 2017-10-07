@@ -4,58 +4,28 @@
  * Provides an API for integrating the jQuery Masonry plugin with Backdrop.
  */
 
+ /**
+  * Implements hook_library_info().
+  */
+ function masonry_library_info() {
+   $libraries['masonry'] = array(
+     'title' => 'masonry',
+     'website' => 'https://github.com/desandro/masonry',
+     'version' => '4.2.0',
+     'js' => array(
+       backdrop_get_path('module', 'masonry') . '/library/masonry.pkgd.min.js' => array(),
+     ),
+   );
+   return $libraries;
+ }
 /**
- * Implements hook_libraries_info().
- */
-function masonry_libraries_info() {
-  $libraries['masonry'] = array(
-    'name' => 'Masonry',
-    'vendor url' => 'http://masonry.desandro.com/',
-    'download url' => 'http://masonry.desandro.com/',
-    'version arguments' => array(
-      'file' => 'masonry.pkgd.min.js',
-      // Masonry 3.x
-      'pattern' => '/Masonry\s+PACKAGED\s+v?([0-9\.]+)/',
-      'lines' => 2,
-      'cols' => 30,
-    ),
-    'files' => array(
-      'js' => array(
-        'masonry.pkgd.min.js',
-      ),
-    ),
-  );
-  $libraries['jquery.imagesloaded'] = array(
-    'name' => 'imagesLoaded',
-    'vendor url' => 'http://desandro.github.io/imagesloaded',
-    'download url' => 'http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js',
-    'version arguments' => array(
-      'file' => 'imagesloaded.pkgd.min.js',
-      // imagesLoaded 3.x
-      'pattern' => '/imagesLoaded\s+PACKAGED\s+v?([0-9\.]+)/',
-      'lines' => 2,
-      'cols' => 35,
-    ),
-    'files' => array(
-      'js' => array(
-        'imagesloaded.pkgd.min.js',
-      ),
-    ),
-  );
-
-  return $libraries;
-}
-
-/**
- * Check if the Masonry and imagesLoaded libraries are installed.
+ * Check if the imagesLoaded library is installed.
  *
  * @return
  *   A boolean indicating the installed status.
  */
 function masonry_installed() {
-  $masonry = libraries_detect('masonry');
-  $imagesloaded = libraries_detect('jquery.imagesloaded');
-  if ((!empty($masonry['installed'])) && (!empty($imagesloaded['installed']))) {
+  if (module_exists('imagesloaded')) {
     return TRUE;
   }
   else {
@@ -70,9 +40,9 @@ function masonry_installed() {
  *   A boolean indicating the loaded status.
  */
 function masonry_loaded() {
-  $masonry = libraries_load('masonry');
-  $imagesloaded = libraries_load('jquery.imagesloaded');
-  if ((!empty($masonry['loaded'])) && (!empty($imagesloaded['loaded']))) {
+  $masonry = backdrop_add_library('masonry');
+  $imagesloaded = backdrop_add_library('imagesloaded');
+  if ($masonry && $imagesloaded) {
     return TRUE;
   }
   else {

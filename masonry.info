@@ -4,4 +4,4 @@ backdrop = 1.x
 package = Masonry
 type = module
 
-dependencies[] = libraries
+dependencies[] = imagesloaded
