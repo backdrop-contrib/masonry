@@ -2,12 +2,12 @@
 
 Provides an API for integrating the jQuery Masonry plugin with Drupal.
 
-From [desandro.github.io/masonry](http://desandro.github.io/masonry/docs/intro.html):
+From [masonry.desandro.com](https://masonry.desandro.com/):
 
   >  Masonry is a JavaScript grid layout library. It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall.
 
 As this is an API module, you will likely want to download some of the sub-modules below that implement this API to provide Masonry functionality to various parts of your site.
-Additionally, no styling is provided by this API module or any of the sub-modules. You will need to add your own CSS as described [here](http://masonry.desandro.com/#css).
+Additionally, no styling is provided by this API module or any of the sub-modules. You will need to add your own CSS as described [here](https://masonry.desandro.com/#css).
 
 ## Dependencies
 
@@ -39,7 +39,7 @@ Bugs and Feature requests should be reported in the
 ## Credits
 
 - Ported to Backdrop CMS by [Laryn Kragt Bakker](https://github.com/laryn) - [CEDC.org](https://cedc.org).
-- Maintainers for the Drupal module: [BWPanda](https://github.com/BWPanda) and [Dom.](https://www.drupal.org/u/dom).
+- Maintainers for the Drupal module: [Peter Anderson](https://github.com/BWPanda) and [Dom.](https://www.drupal.org/u/dom).
 
 ## License
 
