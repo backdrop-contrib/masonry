@@ -11,7 +11,7 @@
    $libraries['masonry'] = array(
      'title' => 'masonry',
      'website' => 'https://github.com/desandro/masonry',
-     'version' => '4.2.0',
+     'version' => '4.2.2',
      'js' => array(
        backdrop_get_path('module', 'masonry') . '/library/masonry.pkgd.min.js' => array(),
      ),
@@ -72,17 +72,17 @@ function masonry_loaded() {
  */
 function masonry_default_options() {
   $options = array(
-    'masonry_column_width' => '',
-    'masonry_column_width_units' => 'px',
+    'masonry_column_width' => '33',
+    'masonry_column_width_units' => '%',
     'masonry_gutter_width' => '0',
     'masonry_resizable' => 1,
-    'masonry_animated' => 0,
-    'masonry_animation_duration' => '500',
-    'masonry_fit_width' => 0,
+    'masonry_animated' => 1,
+    'masonry_animation_duration' => '0.4',
+    'masonry_fit_width' => 1,
     'masonry_rtl' => 0,
     'masonry_images_first' => 1,
     'masonry_stamp_selector' => '',
-    'masonry_percent_position' => 0,
+    'masonry_percent_position' => 1,
   );
 
   // Allow other modules to alter the default options
@@ -152,11 +152,11 @@ function masonry_add_options_to_form(&$form, $default_values) {
   $form['masonry_animation_duration'] = array(
     '#type' => 'textfield',
     '#title' => t('Animation duration'),
-    '#description' => t("The duration of animations (1000 ms = 1 sec)."),
+    '#description' => t("The duration of animations (Default: 0.4s)."),
     '#default_value' => $default_values['masonry_animation_duration'],
     '#size' => 5,
     '#maxlength' => 4,
-    '#field_suffix' => t('ms'),
+    '#field_suffix' => t('s'),
     '#states' => array(
       'visible' => array(
         'input.form-checkbox[name$="[masonry_resizable]"]' => array('checked' => TRUE),
@@ -226,6 +226,10 @@ function masonry_apply($container, $options = array()) {
     }
 
     // Setup Masonry script
+    //TODO: Integrate 'containerStyle' option?
+    //TODO: Expose 'horizontalOrder' as an option?
+    //TODO: Expose 'originTop' as an option?
+    //TODO: Expose 'stagger' as an option?
     $masonry = array(
       'masonry' => array(
         $container => array(
@@ -235,7 +239,7 @@ function masonry_apply($container, $options = array()) {
           'gutter_width' => (int) $options['masonry_gutter_width'],
           'resizable' => (bool) $options['masonry_resizable'],
           'animated' => (bool) $options['masonry_animated'],
-          'animation_duration' => (int) $options['masonry_animation_duration'],
+          'animation_duration' => $options['masonry_animation_duration'],
           'fit_width' => (bool) $options['masonry_fit_width'],
           'rtl' => (bool) $options['masonry_rtl'],
           'images_first' => (bool) $options['masonry_images_first'],

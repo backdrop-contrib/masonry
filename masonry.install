@@ -13,8 +13,8 @@ function masonry_requirements($phase) {
 
   if ($phase == 'runtime') {
     $imagesloaded = module_exists('imagesloaded');
-    $requirements['masonry_imagesloaded']['title'] = 'imagesLoaded';
     if (!$imagesloaded) {
+      $requirements['masonry_imagesloaded']['title'] = 'imagesLoaded';
       $requirements['masonry_imagesloaded']['value'] = $imagesloaded['error'];
       //$requirements['jquery.imagesloaded']['description'] = $imagesloaded['error message'];
       $requirements['masonry_imagesloaded']['description'] = $t('Install and enable the <a href="@link">@name</a> module.', array(
