@@ -14,16 +14,14 @@ function masonry_requirements($phase) {
   if ($phase == 'runtime') {
     $imagesloaded = module_exists('imagesloaded');
     if (!$imagesloaded) {
-      $requirements['masonry_imagesloaded']['title'] = 'imagesLoaded';
-      $requirements['masonry_imagesloaded']['value'] = $imagesloaded['error'];
-      //$requirements['jquery.imagesloaded']['description'] = $imagesloaded['error message'];
-      $requirements['masonry_imagesloaded']['description'] = $t('Install and enable the <a href="@link">@name</a> module.', array(
-            '@link' => 'https://backdropcms.org/project/imagesloaded',
-            '@name' => $requirements['masonry_imagesloaded']['title'],
-          ));
-      $requirements['masonry_imagesloaded']['severity'] = REQUIREMENT_ERROR;
+      $requirements['masonry_imagesloaded'] = array(
+        'title' => 'Masonry',
+        'value' => $t('The imagesLoaded module is required by Masonry but is not enabled.'),
+        'description' => $t('Install and enable the <a href="@link">imagesLoaded</a> module.', array('@link' => 'https://backdropcms.org/project/imagesloaded')),
+        'severity' => REQUIREMENT_ERROR,
+      );
     }
-
   }
+
   return $requirements;
 }
